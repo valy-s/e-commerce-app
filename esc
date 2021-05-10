@@ -1,0 +1,442 @@
+[33mcommit dee0453fe27071f65ba3dd3237cdbf32e519f1e4[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: valy-s <valeriu.stanculescu@gmail.com>
+Date:   Mon May 10 15:18:39 2021 -0500
+
+    created project with create react app and added files for homepage
+
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..4d29575[m
+[1m--- /dev/null[m
+[1m+++ b/.gitignore[m
+[36m@@ -0,0 +1,23 @@[m
+[32m+[m[32m# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.[m
+[32m+[m
+[32m+[m[32m# dependencies[m
+[32m+[m[32m/node_modules[m
+[32m+[m[32m/.pnp[m
+[32m+[m[32m.pnp.js[m
+[32m+[m
+[32m+[m[32m# testing[m
+[32m+[m[32m/coverage[m
+[32m+[m
+[32m+[m[32m# production[m
+[32m+[m[32m/build[m
+[32m+[m
+[32m+[m[32m# misc[m
+[32m+[m[32m.DS_Store[m
+[32m+[m[32m.env.local[m
+[32m+[m[32m.env.development.local[m
+[32m+[m[32m.env.test.local[m
+[32m+[m[32m.env.production.local[m
+[32m+[m
+[32m+[m[32mnpm-debug.log*[m
+[32m+[m[32myarn-debug.log*[m
+[32m+[m[32myarn-error.log*[m
+[1mdiff --git a/package.json b/package.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e1e80c1[m
+[1m--- /dev/null[m
+[1m+++ b/package.json[m
+[36m@@ -0,0 +1,51 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m  "name": "crwn-clothing",[m
+[32m+[m[32m  "version": "0.1.0",[m
+[32m+[m[32m  "private": true,[m
+[32m+[m[32m  "dependencies": {[m
+[32m+[m[32m    "@testing-library/jest-dom": "^5.11.4",[m
+[32m+[m[32m    "@testing-library/react": "^11.1.0",[m
+[32m+[m[32m    "@testing-library/user-event": "^12.1.10",[m
+[32m+[m[32m    "node-sass": "^6.0.0",[m
+[32m+[m[32m    "react": "^17.0.2",[m
+[32m+[m[32m    "react-dom": "^17.0.2",[m
+[32m+[m[32m    "react-scripts": "4.0.3",[m
+[32m+[m[32m    "web-vitals": "^0.2.4",[m
+[32m+[m[32m    "workbox-background-sync": "^5.1.3",[m
+[32m+[m[32m    "workbox-broadcast-update": "^5.1.3",[m
+[32m+[m[32m    "workbox-cacheable-response": "^5.1.3",[m
+[32m+[m[32m    "workbox-core": "^5.1.3",[m
+[32m+[m[32m    "workbox-expiration": "^5.1.3",[m
+[32m+[m[32m    "workbox-google-analytics": "^5.1.3",[m
+[32m+[m[32m    "workbox-navigation-preload": "^5.1.3",[m
+[32m+[m[32m    "workbox-precaching": "^5.1.3",[m
+[32m+[m[32m    "workbox-range-requests": "^5.1.3",[m
+[32m+[m[32m    "workbox-routing": "^5.1.3",[m
+[32m+[m[32m    "workbox-strategies": "^5.1.3",[m
+[32m+[m[32m    "workbox-streams": "^5.1.3"[m
+[32m+[m[32m  },[m
+[32m+[m[32m  "scripts": {[m
+[32m+[m[32m    "start": "react-scripts start",[m
+[32m+[m[32m    "build": "react-scripts build",[m
+[32m+[m[32m    "test": "react-scripts test",[m
+[32m+[m[32m    "eject": "react-scripts eject"[m
+[32m+[m[32m  },[m
+[32m+[m[32m  "eslintConfig": {[m
+[32m+[m[32m    "extends": [[m
+[32m+[m[32m      "react-app",[m
+[32m+[m[32m      "react-app/jest"[m
+[32m+[m[32m    ][m
+[32m+[m[32m  },[m
+[32m+[m[32m  "browserslist": {[m
+[32m+[m[32m    "production": [[m
+[32m+[m[32m      ">0.2%",[m
+[32m+[m[32m      "not dead",[m
+[32m+[m[32m      "not op_mini all"[m
+[32m+[m[32m    ],[m
+[32m+[m[32m    "development": [[m
+[32m+[m[32m      "last 1 chrome version",[m
+[32m+[m[32m      "last 1 firefox version",[m
+[32m+[m[32m      "last 1 safari version"[m
+[32m+[m[32m    ][m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[1mdiff --git a/public/favicon.ico b/public/favicon.ico[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a11777c[m
+Binary files /dev/null and b/public/favicon.ico differ
+[1mdiff --git a/public/index.html b/public/index.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6a9f8c2[m
+[1m--- /dev/null[m
+[1m+++ b/public/index.html[m
+[36m@@ -0,0 +1,40 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html lang="en">[m
+[32m+[m[32m  <head>[m
+[32m+[m[32m    <meta charset="utf-8" />[m
+[32m+[m[32m    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />[m
+[32m+[m[32m    <meta name="viewport" content="width=device-width, initial-scale=1" />[m
+[32m+[m[32m    <meta name="theme-color" content="#000000" />[m
+[32m+[m[32m    <meta name="description" content="Web site created using create-react-app" />[m
+[32m+[m[32m    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />[m
+[32m+[m[32m    <!--[m
+[32m+[m[32m      manifest.json provides metadata used when your web app is installed on a[m
+[32m+[m[32m      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/[m
+[32m+[m[32m    -->[m
+[32m+[m[32m    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />[m
+[32m+[m[32m    <!--[m
+[32m+[m[32m      Notice the use of %PUBLIC_URL% in the tags above.[m
+[32m+[m[32m      It will be replaced with the URL of the `public` folder during the build.[m
+[32m+[m[32m      Only files inside the `public` folder can be referenced from the HTML.[m
+[32m+[m
+[32m+[m[32m      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will[m
+[32m+[m[32m      work correctly both with client-side routing and a non-root public URL.[m
+[32m+[m[32m      Learn how to configure a non-root public URL by running `npm run build`.[m
+[32m+[m[32m    -->[m
+[32m+[m[32m    <title>React App</title>[m
+[32m+[m[32m  </head>[m
+[32m+[m[32m  <body>[m
+[32m+[m[32m    <noscript>You need to enable JavaScript to run this app.</noscript>[m
+[32m+[m[32m    <div id="root"></div>[m
+[32m+[m[32m    <!--[m
+[32m+[m[32m      This HTML file is a template.[m
+[32m+[m[32m      If you open it directly in the browser, you will see an empty page.[m
+[32m+[m
+[32m+[m[32m      You can add webfonts, meta tags, or analytics to this file.[m
+[32m+[m[32m      The build step will place the bundled scripts into the <body> tag.[m
+[32m+[m
+[32m+[m[32m      To begin the development, run `npm start` or `yarn start`.[m
+[32m+[m[32m      To create a production bundle, use `npm run build` or `yarn build`.[m
+[32m+[m[32m    -->[m
+[32m+[m[32m  </body>[m
+[32m+[m[32m</html>[m
+[1mdiff --git a/public/logo192.png b/public/logo192.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..fc44b0a[m
+Binary files /dev/null and b/public/logo192.png differ
+[1mdiff --git a/public/logo512.png b/public/logo512.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a4e47a6[m
+Binary files /dev/null and b/public/logo512.png differ
+[1mdiff --git a/public/manifest.json b/public/manifest.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..080d6c7[m
+[1m--- /dev/null[m
+[1m+++ b/public/manifest.json[m
+[36m@@ -0,0 +1,25 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m  "short_name": "React App",[m
+[32m+[m[32m  "name": "Create React App Sample",[m
+[32m+[m[32m  "icons": [[m
+[32m+[m[32m    {[m
+[32m+[m[32m      "src": "favicon.ico",[m
+[32m+[m[32m      "sizes": "64x64 32x32 24x24 16x16",[m
+[32m+[m[32m      "type": "image/x-icon"[m
+[32m+[m[32m    },[m
+[32m+[m[32m    {[m
+[32m+[m[32m      "src": "logo192.png",[m
+[32m+[m[32m      "type": "image/png",[m
+[32m+[m[32m      "sizes": "192x192"[m
+[32m+[m[32m    },[m
+[32m+[m[32m    {[m
+[32m+[m[32m      "src": "logo512.png",[m
+[32m+[m[32m      "type": "image/png",[m
+[32m+[m[32m      "sizes": "512x512"[m
+[32m+[m[32m    }[m
+[32m+[m[32m  ],[m
+[32m+[m[32m  "start_url": ".",[m
+[32m+[m[32m  "display": "standalone",[m
+[32m+[m[32m  "theme_color": "#000000",[m
+[32m+[m[32m  "background_color": "#ffffff"[m
+[32m+[m[32m}[m
+[1mdiff --git a/public/robots.txt b/public/robots.txt[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e9e57dc[m
+[1m--- /dev/null[m
+[1m+++ b/public/robots.txt[m
+[36m@@ -0,0 +1,3 @@[m
+[32m+[m[32m# https://www.robotstxt.org/robotstxt.html[m
+[32m+[m[32mUser-agent: *[m
+[32m+[m[32mDisallow:[m
+[1mdiff --git a/src/App.css b/src/App.css[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e69de29[m
+[1mdiff --git a/src/App.js b/src/App.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8df589e[m
+[1m--- /dev/null[m
+[1m+++ b/src/App.js[m
+[36m@@ -0,0 +1,14 @@[m
+[32m+[m[32mimport React from "react";[m
+[32m+[m[32mimport HomePage from "./homepage.component";[m
+[32m+[m
+[32m+[m[32mimport "./App.css";[m
+[32m+[m
+[32m+[m[32mfunction App() {[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <div>[m
+[32m+[m[32m      <HomePage />[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m  );[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mexport default App;[m
+[1mdiff --git a/src/App.test.js b/src/App.test.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2a68616[m
+[1m--- /dev/null[m
+[1m+++ b/src/App.test.js[m
+[36m@@ -0,0 +1,9 @@[m
+[32m+[m[32mimport React from 'react';[m
+[32m+[m[32mimport { render, screen } from '@testing-library/react';[m
+[32m+[m[32mimport App from './App';[m
+[32m+[m
+[32m+[m[32mtest('renders learn react link', () => {[m
+[32m+[m[32m  render(<App />);[m
+[32m+[m[32m  const linkElement = screen.getByText(/learn react/i);[m
+[32m+[m[32m  expect(linkElement).toBeInTheDocument();[m
+[32m+[m[32m});[m
+[1mdiff --git a/src/homepage.component.jsx b/src/homepage.component.jsx[m
+[1mnew file mode 100644[m
+[1mindex 0000000..bd44283[m
+[1m--- /dev/null[m
+[1m+++ b/src/homepage.component.jsx[m
+[36m@@ -0,0 +1,43 @@[m
+[32m+[m[32mimport React from "react";[m
+[32m+[m[32mimport "./homepage.styles.scss";[m
+[32m+[m
+[32m+[m[32mconst HomePage = () => {[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <div className="homepage">[m
+[32m+[m[32m      <div className="directory-menu">[m
+[32m+[m[32m        <div className="menu-item">[m
+[32m+[m[32m          <div className="content">[m
+[32m+[m[32m            <h1 className="title">HATS</h1>[m
+[32m+[m[32m            <span className="subtitle">SHOP NOW</span>[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div className="menu-item">[m
+[32m+[m[32m          <div className="content">[m
+[32m+[m[32m            <h1 className="title">HATS</h1>[m
+[32m+[m[32m            <span className="subtitle">SHOP NOW</span>[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div className="menu-item">[m
+[32m+[m[32m          <div className="content">[m
+[32m+[m[32m            <h1 className="title">HATS</h1>[m
+[32m+[m[32m            <span className="subtitle">SHOP NOW</span>[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div className="menu-item">[m
+[32m+[m[32m          <div className="content">[m
+[32m+[m[32m            <h1 className="title">WOMENS</h1>[m
+[32m+[m[32m            <span className="subtitle">SHOP NOW</span>[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m        <div className="menu-item">[m
+[32m+[m[32m          <div className="content">[m
+[32m+[m[32m            <h1 className="title">MENS</h1>[m
+[32m+[m[32m            <span className="subtitle">SHOP NOW</span>[m
+[32m+[m[32m          </div>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m      </div>[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m  );[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32mexport default HomePage;[m
+[1mdiff --git a/src/homepage.styles.scss b/src/homepage.styles.scss[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d79444e[m
+[1m--- /dev/null[m
+[1m+++ b/src/homepage.styles.scss[m
+[36m@@ -0,0 +1,54 @@[m
+[32m+[m[32m.homepage {[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  flex-direction: column;[m
+[32m+[m[32m  align-items: center;[m
+[32m+[m[32m  padding: 20px 80px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.directory-menu {[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  flex-wrap: wrap;[m
+[32m+[m[32m  justify-content: space-between;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.menu-item {[m
+[32m+[m[32m  min-width: 30%;[m
+[32m+[m[32m  height: 240px;[m
+[32m+[m[32m  flex: 1 1 auto;[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  align-items: center;[m
+[32m+[m[32m  justify-content: center;[m
+[32m+[m[32m  border: 1px solid black;[m
+[32m+[m[32m  margin: 0 7.5px 15px;[m
+[32m+[m
+[32m+[m[32m  &:first-child {[m
+[32m+[m[32m    margin-right: 7.5px;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  &:last-child {[m
+[32m+[m[32m    margin-left: 7.5px;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  .content {[m
+[32m+[m[32m    height: 90px;[m
+[32m+[m[32m    padding: 0 25px;[m
+[32m+[m[32m    display: flex;[m
+[32m+[m[32m    flex-direction: column;[m
+[32m+[m[32m    align-items: center;[m
+[32m+[m[32m    justify-content: center;[m
+[32m+[m[32m    border: 1px solid black;[m
+[32m+[m
+[32m+[m[32m    .title {[m
+[32m+[m[32m      font-weight: bold;[m
+[32m+[m[32m      margin-bottom: 6px;[m
+[32m+[m[32m      font-size: 22px;[m
+[32m+[m[32m      color: #4a4a4a;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    .subtitle {[m
+[32m+[m[32m      font-weight: lighter;[m
+[32m+[m[32m      font-size: 16px;[m
+[32m+[m[32m    }[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/index.css b/src/index.css[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ec2585e[m
+[1m--- /dev/null[m
+[1m+++ b/src/index.css[m
+[36m@@ -0,0 +1,13 @@[m
+[32m+[m[32mbody {[m
+[32m+[m[32m  margin: 0;[m
+[32m+[m[32m  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',[m
+[32m+[m[32m    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',[m
+[32m+[m[32m    sans-serif;[m
+[32m+[m[32m  -webkit-font-smoothing: antialiased;[m
+[32m+[m[32m  -moz-osx-font-smoothing: grayscale;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mcode {[m
+[32m+[m[32m  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',[m
+[32m+[m[32m    monospace;[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/index.js b/src/index.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e459b13[m
+[1m--- /dev/null[m
+[1m+++ b/src/index.js[m
+[36m@@ -0,0 +1,23 @@[m
+[32m+[m[32mimport React from 'react';[m
+[32m+[m[32mimport ReactDOM from 'react-dom';[m
+[32m+[m[32mimport './index.css';[m
+[32m+[m[32mimport App from './App';[m
+[32m+[m[32mimport * as serviceWorkerRegistration from './serviceWorkerRegistration';[m
+[32m+[m[32mimport reportWebVitals from './reportWebVitals';[m
+[32m+[m
+[32m+[m[32mReactDOM.render([m
+[32m+[m[32m  <React.StrictMode>[m
+[32m+[m[32m    <App />[m
+[32m+[m[32m  </React.StrictMode>,[m
+[32m+[m[32m  document.getElementById('root')[m
+[32m+[m[32m);[m
+[32m+[m
+[32m+[m[32m// If you want your app to work offline and load faster, you can change[m
+[32m+[m[32m// unregister() to register() below. Note this comes with some pitfalls.[m
+[32m+[m[32m// Learn more about service workers: https://cra.link/PWA[m
+[32m+[m[32mserviceWorkerRegistration.unregister();[m
+[32m+[m
+[32m+[m[32m// If you want to start measuring performance in your app, pass a function[m
+[32m+[m[32m// to log results (for example: reportWebVitals(console.log))[m
+[32m+[m[32m// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals[m
+[32m+[m[32mreportWebVitals();[m
+[1mdiff --git a/src/logo.svg b/src/logo.svg[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6b60c10[m
+[1m--- /dev/null[m
+[1m+++ b/src/logo.svg[m
+[36m@@ -0,0 +1,7 @@[m
+[32m+[m[32m<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.9 595.3">[m
+[32m+[m[32m    <g fill="#61DAFB">[m
+[32m+[m[32m        <path d="M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9V78c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6V78.5c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zM421.2 430c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24 4.7 8 9.5 15.8 14.4 23.4zM420.7 163c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16-13 24-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6 0-15.7 22.9-35.6 58.3-50.6 8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zM310 490c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6zM320.8 78.4z"/>[m
+[32m+[m[32m        <circle cx="420.9" cy="296.5" r="45.7"/>[m
+[32m+[m[32m        <path d="M520.5 78.1z"/>[m
+[32m+[m[32m    </g>[m
+[32m+[m[32m</svg>[m
+[1mdiff --git a/src/reportWebVitals.js b/src/reportWebVitals.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..532f29b[m
+[1m--- /dev/null[m
+[1m+++ b/src/reportWebVitals.js[m
+[36m@@ -0,0 +1,13 @@[m
+[32m+[m[32mconst reportWebVitals = (onPerfEntry) => {[m
+[32m+[m[32m  if (onPerfEntry && onPerfEntry instanceof Function) {[m
+[32m+[m[32m    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {[m
+[32m+[m[32m      getCLS(onPerfEntry);[m
+[32m+[m[32m      getFID(onPerfEntry);[m
+[32m+[m[32m      getFCP(onPerfEntry);[m
+[32m+[m[32m      getLCP(onPerfEntry);[m
+[32m+[m[32m      getTTFB(onPerfEntry);[m
+[32m+[m[32m    });[m
+[32m+[m[32m  }[m
+[32m+[m[32m};[m
+[32m+[m
+[32m+[m[32mexport default reportWebVitals;[m
+[1mdiff --git a/src/service-worker.js b/src/service-worker.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0f1e0ce[m
+[1m--- /dev/null[m
+[1m+++ b/src/service-worker.js[m
+[36m@@ -0,0 +1,72 @@[m
+[32m+[m[32m/* eslint-disable no-restricted-globals */[m
+[32m+[m
+[32m+[m[32m// This service worker can be customized![m
+[32m+[m[32m// See https://developers.google.com/web/tools/workbox/modules[m
+[32m+[m[32m// for the list of available Workbox modules, or add any other[m
+[32m+[m[32m// code you'd like.[m
+[32m+[m[32m// You can also remove this file if you'd prefer not to use a[m
+[32m+[m[32m// service worker, and the Workbox build step will be skipped.[m
+[32m+[m
+[32m+[m[32mimport { clientsClaim } from 'workbox-core';[m
+[32m+[m[32mimport { ExpirationPlugin } from 'workbox-expiration';[m
+[32m+[m[32mimport { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';[m
+[32m+[m[32mimport { registerRoute } from 'workbox-routing';[m
+[32m+[m[32mimport { StaleWhileRevalidate } from 'workbox-strategies';[m
+[32m+[m
+[32m+[m[32mclientsClaim();[m
+[32m+[m
+[32m+[m[32m// Precache all of the assets generated by your build process.[m
+[32m+[m[32m// Their URLs are injected into t
