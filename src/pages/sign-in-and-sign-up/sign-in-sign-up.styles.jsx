@@ -1,7 +1,9 @@
-.sign-in-and-sign-up {
+import styled from "styled-components";
+
+export const SignInUpContainer = styled.div`
   width: 850px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 30px auto;
-}
+`;
